@@ -19,7 +19,7 @@ if(url === '/message' && method ==='POST'){
     });
     return req.on( 'end', ()=>{
         const parseBody = Buffer.concat(body).toString();
-        const message = parseBody.split('=')[0];
+        const message = parseBody.split('=')[1];
         fs.writeFile('message.txt', message , (err) =>{
             res.statusCode = 302;
             res.setHeader('Location', '/');
